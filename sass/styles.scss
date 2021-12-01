@@ -1,7 +1,6 @@
 @import "./mixins";
 
 * {
-  font-size: 15px;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -9,4 +8,125 @@
 
 body {
   font-family: "Spartan", sans-serif;
+  font-size: 15px;
+  line-height: 1.4;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: url(../images/bg-pattern-bottom-desktop.svg);
+  background-size: cover;
+}
+
+main {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  margin: 0 auto;
+  max-width: 1200px;
+}
+
+.hero {
+  color: $dark-magenta;
+  padding-right: 10rem;
+
+  h1 {
+    font-size: 3rem;
+    line-height: 1;
+    margin-bottom: 1rem;
+  }
+  h4 {
+    color: $dark-gray-magenta;
+    font-weight: 500;
+    line-height: 1.6;
+  }
+}
+
+.rating-section {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.rating {
+  background-color: $light-gray-magenta;
+  display: flex;
+  align-items: center;
+  // max-width: 500px;
+  padding: 1rem 3rem 1rem 2rem;
+  border-radius: 6px;
+  margin: 0.5rem;
+
+  &:first-child {
+    align-self: flex-start;
+  }
+  &:nth-child(2) {
+    align-self: center;
+  }
+  &:last-child {
+    align-self: flex-end;
+  }
+
+  .stars {
+    margin-right: 1.5rem;
+  }
+
+  p {
+    color: $dark-magenta;
+    font-weight: 700;
+  }
+}
+
+.review-section {
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem 0;
+}
+
+.review {
+  background-color: $dark-magenta;
+  color: $light-gray-magenta;
+  padding: 2.5rem;
+  border-radius: 1rem;
+  width: 31%;
+
+  &:first-child {
+    align-self: flex-start;
+  }
+
+  &:nth-child(2) {
+    align-self: center;
+    transform: translateY(1.2rem);
+  }
+
+  &:last-child {
+    align-self: flex-end;
+    transform: translateY(2.4rem);
+  }
+
+  .user {
+    display: flex;
+    align-items: center;
+    padding: 0.8rem 0 1.5rem;
+
+    &__img {
+      width: 3rem;
+      border-radius: 2rem;
+      margin-right: 2rem;
+    }
+
+    &__name {
+      font-weight: 700;
+      font-size: 14px;
+      p:last-child {
+        color: rgba($soft-pink, 0.5);
+      }
+    }
+  }
+
+  &__text {
+    font-size: 13px;
+    line-height: 1.8;
+  }
 }
