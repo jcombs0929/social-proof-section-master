@@ -155,7 +155,7 @@ main {
 .review .user__img {
   width: 3rem;
   border-radius: 2rem;
-  margin-right: 2rem;
+  margin-right: 1.5rem;
 }
 
 .review .user__name {
