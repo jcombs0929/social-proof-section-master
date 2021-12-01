@@ -130,3 +130,19 @@ main {
     line-height: 1.8;
   }
 }
+
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding: 1rem;
+
+  .attribution {
+    font-size: 11px;
+    text-align: center;
+    color: $dark-magenta;
+  }
+  .attribution a {
+    color: $soft-pink;
+  }
+}
