@@ -1,6 +1,7 @@
 @import "./mixins";
 
-* {
+*,
+html {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -16,19 +17,43 @@ body {
   justify-content: center;
   background: url(../images/bg-pattern-bottom-desktop.svg);
   background-size: cover;
+  margin: 1rem auto;
+  padding: 2rem;
+
+  @media (max-width: 960px) {
+    justify-content: flex-start;
+  }
 }
 
 main {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: repeat(2, 1fr);
+  grid-auto-rows: 1fr;
   margin: 0 auto;
   max-width: 1200px;
+
+  @media (max-width: 960px) {
+    display: block;
+
+    & > section {
+      display: grid;
+      justify-content: center;
+      align-content: center;
+      margin-bottom: 2.5rem;
+    }
+  }
 }
 
 .hero {
   color: $dark-magenta;
   padding-right: 10rem;
+
+  @media (max-width: 960px) {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 0;
+  }
 
   h1 {
     font-size: 3rem;
@@ -46,16 +71,32 @@ main {
   display: flex;
   flex-direction: column;
   flex: 1;
+
+  @media (max-width: 960px) {
+    grid-column: 1 / -1;
+    justify-content: stretch;
+
+    & > .rating {
+      align-self: unset !important;
+    }
+  }
 }
 
 .rating {
   background-color: $light-gray-magenta;
   display: flex;
   align-items: center;
-  // max-width: 500px;
-  padding: 1rem 3rem 1rem 2rem;
+  padding: 1rem 2rem;
   border-radius: 6px;
   margin: 0.5rem;
+
+  @media (max-width: 960px) {
+    flex-direction: column;
+
+    .stars {
+      margin-right: 0;
+    }
+  }
 
   &:first-child {
     align-self: flex-start;
@@ -69,6 +110,10 @@ main {
 
   .stars {
     margin-right: 1.5rem;
+
+    @media (max-width: 960px) {
+      margin-right: 0;
+    }
   }
 
   p {
@@ -82,6 +127,15 @@ main {
   display: flex;
   justify-content: space-between;
   padding: 0.5rem 0;
+
+  @media (max-width: 960px) {
+    flex-direction: column;
+
+    & > .review {
+      align-self: unset !important;
+      width: 100%;
+    }
+  }
 }
 
 .review {
@@ -98,6 +152,7 @@ main {
   &:nth-child(2) {
     align-self: center;
     transform: translateY(1.2rem);
+    // margin-top: 1.5rem;
   }
 
   &:last-child {
@@ -132,17 +187,18 @@ main {
 }
 
 footer {
-  position: absolute;
-  bottom: 0;
+  // position: absolute;
+  // bottom: 0;
   width: 100%;
   padding: 1rem;
+  margin-top: 2rem;
 
   .attribution {
-    font-size: 11px;
+    font-size: 10px;
     text-align: center;
     color: $dark-magenta;
   }
   .attribution a {
-    color: $soft-pink;
+    color: $dark-magenta;
   }
 }
